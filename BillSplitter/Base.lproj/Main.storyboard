@@ -1,24 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bill View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BillViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="textfield..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JN0-5S-puj">
+                                <rect key="frame" x="145" y="20" width="85.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-Yq-m4w">
+                                <rect key="frame" x="-2" y="57" width="379" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-AZ-89z">
+                                <rect key="frame" x="164.5" y="102" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="calculateSplitAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9nK-wz-cvI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kve-KS-Kge">
+                                <rect key="frame" x="166.5" y="142" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kve-KS-Kge" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8EN-1r-aRq"/>
+                            <constraint firstItem="ACd-Yq-m4w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SUM-5K-v8j"/>
+                            <constraint firstItem="nBU-AZ-89z" firstAttribute="top" secondItem="ACd-Yq-m4w" secondAttribute="bottom" constant="15" id="U0P-yg-RNe"/>
+                            <constraint firstItem="JN0-5S-puj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VWn-Ef-xeE"/>
+                            <constraint firstItem="nBU-AZ-89z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a75-mE-Kjm"/>
+                            <constraint firstItem="kve-KS-Kge" firstAttribute="top" secondItem="nBU-AZ-89z" secondAttribute="bottom" constant="10" id="cie-FR-qON"/>
+                            <constraint firstItem="ACd-Yq-m4w" firstAttribute="top" secondItem="JN0-5S-puj" secondAttribute="bottom" constant="7" id="eTR-pL-rBJ"/>
+                            <constraint firstItem="JN0-5S-puj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="upv-0S-k3D"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="amountOfBillTextfield" destination="JN0-5S-puj" id="chG-zO-fD1"/>
+                        <outlet property="amountPerPersonLabel" destination="kve-KS-Kge" id="vbI-g8-7E3"/>
+                        <outlet property="calculateBillButton" destination="nBU-AZ-89z" id="Ach-I7-Uaw"/>
+                        <outlet property="numberOfPeopleSlider" destination="ACd-Yq-m4w" id="zjJ-Jb-Zlu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
