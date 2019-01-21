@@ -18,38 +18,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="textfield..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JN0-5S-puj">
-                                <rect key="frame" x="145" y="20" width="85.5" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Total Amount $" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JN0-5S-puj">
+                                <rect key="frame" x="87.5" y="20" width="200" height="70.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JN0-5S-puj" secondAttribute="height" multiplier="17:6" id="OWG-e4-Hvp"/>
+                                    <constraint firstAttribute="width" constant="200" id="hM6-Wa-KAp"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-Yq-m4w">
-                                <rect key="frame" x="-2" y="57" width="379" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-Yq-m4w">
+                                <rect key="frame" x="-2" y="97.5" width="379" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="TKK-9n-Zrc"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="numberOfPeopleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="sXA-R2-DBC"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-AZ-89z">
-                                <rect key="frame" x="164.5" y="102" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="109.5" y="142.5" width="156" height="30"/>
+                                <state key="normal" title="Calculate Per Person $"/>
                                 <connections>
                                     <action selector="calculateSplitAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9nK-wz-cvI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kve-KS-Kge">
-                                <rect key="frame" x="166.5" y="142" width="42" height="21"/>
+                                <rect key="frame" x="166.5" y="182.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Uj-3bU">
+                                <rect key="frame" x="87.5" y="323" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="dOp-jl-T1H"/>
+                                    <constraint firstAttribute="height" constant="21" id="lz3-fF-h00"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ri-wO-2my">
+                                <rect key="frame" x="67" y="418" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tip amount %" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MsO-QH-qDB">
+                                <rect key="frame" x="87.5" y="240" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Gxg-By-rAJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="i8Q-JV-ZA6"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kve-KS-Kge" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8EN-1r-aRq"/>
+                            <constraint firstItem="MsO-QH-qDB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MjW-OE-Gej"/>
+                            <constraint firstItem="YOY-Uj-3bU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qt1-sg-zut"/>
                             <constraint firstItem="ACd-Yq-m4w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SUM-5K-v8j"/>
                             <constraint firstItem="nBU-AZ-89z" firstAttribute="top" secondItem="ACd-Yq-m4w" secondAttribute="bottom" constant="15" id="U0P-yg-RNe"/>
                             <constraint firstItem="JN0-5S-puj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VWn-Ef-xeE"/>
                             <constraint firstItem="nBU-AZ-89z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a75-mE-Kjm"/>
                             <constraint firstItem="kve-KS-Kge" firstAttribute="top" secondItem="nBU-AZ-89z" secondAttribute="bottom" constant="10" id="cie-FR-qON"/>
                             <constraint firstItem="ACd-Yq-m4w" firstAttribute="top" secondItem="JN0-5S-puj" secondAttribute="bottom" constant="7" id="eTR-pL-rBJ"/>
+                            <constraint firstItem="YOY-Uj-3bU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oY5-g8-uWc"/>
+                            <constraint firstItem="MsO-QH-qDB" firstAttribute="top" secondItem="kve-KS-Kge" secondAttribute="bottom" constant="36.5" id="pUD-9O-2wu"/>
                             <constraint firstItem="JN0-5S-puj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="upv-0S-k3D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -58,7 +96,10 @@
                         <outlet property="amountOfBillTextfield" destination="JN0-5S-puj" id="chG-zO-fD1"/>
                         <outlet property="amountPerPersonLabel" destination="kve-KS-Kge" id="vbI-g8-7E3"/>
                         <outlet property="calculateBillButton" destination="nBU-AZ-89z" id="Ach-I7-Uaw"/>
+                        <outlet property="numPeopleImage" destination="6ri-wO-2my" id="gjh-O2-pwb"/>
+                        <outlet property="numPeopleLabel" destination="YOY-Uj-3bU" id="zAC-GW-Kn1"/>
                         <outlet property="numberOfPeopleSlider" destination="ACd-Yq-m4w" id="zjJ-Jb-Zlu"/>
+                        <outlet property="tipPercentageTextfield" destination="MsO-QH-qDB" id="l9c-zs-l6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
